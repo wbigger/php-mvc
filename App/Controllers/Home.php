@@ -21,4 +21,12 @@ class Home extends \Core\Controller
     {
         View::renderTemplate('Home/index.html');
     }
+
+    // Per prova ho aggiunto questa funzione
+    // Il nome dell'azione viene trovato automaticamente
+    // togliendo "Action" dalla funzione
+    public function indexxAction()
+    {
+        View::renderTemplate('Home/indexx.html');
+    }
 }
