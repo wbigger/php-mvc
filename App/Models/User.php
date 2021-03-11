@@ -23,4 +23,8 @@ class User extends \Core\Model
         $stmt = $db->query('SELECT id, name FROM users');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function getConstHello() {
+        return "<p>Hello Marconi</p>";
+    }
 }

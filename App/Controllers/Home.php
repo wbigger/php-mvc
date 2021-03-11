@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \Core\View;
+use \App\Models\User;
 
 /**
  * Home controller
@@ -13,12 +14,28 @@ class Home extends \Core\Controller
 {
 
     /**
+     * Before filter. Return false to stop the action from executing.
+     *
+     * @return void
+     */
+    protected function before()
+    {
+        echo "<h1>";
+    }
+
+    protected function after()
+    {
+        echo "</h1>";
+    }
+
+    /**
      * Show the index page
      *
      * @return void
      */
     public function indexAction()
     {
+        echo User::getConstHello();
         View::renderTemplate('Home/index.html');
     }
 

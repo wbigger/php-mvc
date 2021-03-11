@@ -32,10 +32,11 @@ $router->add('{controller}/{action}');
 // AGGIUNTE CLAUDIO
 // Se query string non è definita, inizializziamola a vuota
 // altrimenti php restituisce errore quando si prova
-// ad accedere
+// ad accedere senza query
 if(!isset($_SERVER['QUERY_STRING'])) {
     $_SERVER['QUERY_STRING'] = '';
 }
+
 // Ho aggiunto gli slash all'inizio altrimenti con Request Uri non fa il match
 $router->add('/', ['controller' => 'Home', 'action' => 'index']);
 $router->add('/{controller}/{action}');
