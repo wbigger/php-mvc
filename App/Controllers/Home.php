@@ -20,12 +20,12 @@ class Home extends \Core\Controller
      */
     protected function before()
     {
-        echo "<h1>";
+        // ...
     }
 
     protected function after()
     {
-        echo "</h1>";
+        // ...
     }
 
     /**
@@ -42,8 +42,8 @@ class Home extends \Core\Controller
     // Per prova ho aggiunto questa funzione
     // Il nome dell'azione viene trovato automaticamente
     // togliendo "Action" dalla funzione
-    public function indexxAction()
+    public function loginAction()
     {
-        View::renderTemplate('Home/indexx.html');
+        View::renderTemplate('Home/login.html');
     }
 }

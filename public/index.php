@@ -29,22 +29,23 @@ $router = new Core\Router();
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
 
-// AGGIUNTE CLAUDIO
+// Ho aggiunto gli slash all'inizio altrimenti con Request Uri non fa il match
+$router->add('/', ['controller' => 'Home', 'action' => 'index']);
+$router->add('/login', ['controller' => 'Home', 'action' => 'login']);
+$router->add('/{controller}/{action}');
+
+// Dispatch generico (ma richiede gli slash all'inizio della rotta)
+$router->dispatch($_SERVER['REQUEST_URI']);
+
+
+// Questo è il dispatch originale ma funziona solo se si specifica una query string
 // Se query string non è definita, inizializziamola a vuota
 // altrimenti php restituisce errore quando si prova
 // ad accedere senza query
-if(!isset($_SERVER['QUERY_STRING'])) {
-    $_SERVER['QUERY_STRING'] = '';
-}
-
-// Ho aggiunto gli slash all'inizio altrimenti con Request Uri non fa il match
-$router->add('/', ['controller' => 'Home', 'action' => 'index']);
-$router->add('/{controller}/{action}');
-
-// Questo è il dispatch originale ma funziona solo se si specifica una query string
+// if(!isset($_SERVER['QUERY_STRING'])) {
+//     $_SERVER['QUERY_STRING'] = '';
+// }
 //$router->dispatch($_SERVER['QUERY_STRING']);
 
-// Questo è più generico (ma richiede gli slash all'inizio della rotta)
-$router->dispatch($_SERVER['REQUEST_URI']);
 
 

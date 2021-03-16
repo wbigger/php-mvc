@@ -1,3 +1,12 @@
 {
-    "phpserver.relativePath": "./Public"
+    "phpserver.relativePath": "./Public",
+    "spellright.language": [
+        "en",
+        "it"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
 }
